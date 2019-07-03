@@ -16,6 +16,7 @@ import {
   Box
 } from "rbx";
 import "rbx/index.css";
+import Router from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -28,33 +29,44 @@ import {
 
 export default function Login() {
   return (
-    <Hero>
+    <Hero color={"info"} size="fullheight" gradient>
       <Hero.Body>
-        <Container>
-          <Field>
-            <Control iconLeft iconRight>
-              <Input type="email" placeholder="Email" />
-              <Icon size="small" align="left">
-                <FontAwesomeIcon icon={faEnvelope} />
-              </Icon>
-              <Icon size="small" align="right">
-                <FontAwesomeIcon icon={faCheck} />
-              </Icon>
-            </Control>
-          </Field>
-          <Field>
-            <Control iconLeft>
-              <Input type="password" placeholder="Password" />
-              <Icon size="small" align="left">
-                <FontAwesomeIcon icon={faLock} />
-              </Icon>
-            </Control>
-          </Field>
-          <Field>
-            <Control>
-              <Button color="success">Login</Button>
-            </Control>
-          </Field>
+        <Container
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: 300
+          }}
+        >
+          <Box>
+            <Field>
+              <Control iconLeft iconRight>
+                <Input type="email" placeholder="Email" />
+                <Icon size="small" align="left">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </Icon>
+                <Icon size="small" align="right">
+                  <FontAwesomeIcon icon={faCheck} />
+                </Icon>
+              </Control>
+            </Field>
+            <Field>
+              <Control iconLeft>
+                <Input type="password" placeholder="Password" />
+                <Icon size="small" align="left">
+                  <FontAwesomeIcon icon={faLock} />
+                </Icon>
+              </Control>
+            </Field>
+            <Field>
+              <Control>
+                <Button color="info" onClick={() => Router.push("/main")}>
+                  <strong>Login</strong>
+                </Button>
+              </Control>
+            </Field>
+          </Box>
         </Container>
       </Hero.Body>
     </Hero>
