@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Container,
@@ -16,13 +16,10 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 // fake data generator
 const getItems = count =>
-  Array.from({ length: count }, (v, k) => k).map(k => {
-    const custom = {
-      id: `item-${k}`,
-      content: `item ${k}`
-    };
-    return custom;
-  });
+  Array.from({ length: count }, (v, k) => k).map(k => ({
+    id: `item-${k}`,
+    content: `item ${k}`
+  }));
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
@@ -55,30 +52,11 @@ const getListStyle = isDraggingOver => ({
 });
 
 export default function Main() {
-  // const [items, setitems] = useState(10);
-  const [state, setState] = useState({ quotes: getItems(10) });
-  console.log(state.quotes);
-  function onDragEnd(result) {
-    // dropped outside the list
-    if (!result.destination) {
-      return;
-    }
-
-    const quotes = reorder(
-      state.quotes,
-      result.source.index,
-      result.destination.index
-    );
-
-    setState({ quotes });
-
-    console.log(state);
-  }
   return (
     <Hero color={"info"} size="fullheight" gradient>
       <Hero.Body>
         <Container>
-          <DragDropContext onDragEnd={onDragEnd}>
+          <DragDropContext>
             <Droppable droppableId="droppable">
               {(provided, snapshot) => (
                 <div
@@ -86,7 +64,7 @@ export default function Main() {
                   ref={provided.innerRef}
                   style={getListStyle(snapshot.isDraggingOver)}
                 >
-                  {state.quotes.map((item, index) => (
+                  {getItems(10).map((item, index) => (
                     <Draggable
                       key={item.id}
                       draggableId={item.id}
@@ -120,13 +98,13 @@ export default function Main() {
 
 {
   /* <Hero color={"info"} size="fullheight" gradient>
-<Hero.Body>
-  <Container>
-    <Title>{"info"} Main</Title>
-    <Title as="h2" subtitle>
-      {"info"} Main
-    </Title>
-  </Container>
-</Hero.Body>
-</Hero> */
+  <Hero.Body>
+    <Container>
+      <Title>{"info"} Main</Title>
+      <Title as="h2" subtitle>
+        {"info"} Main
+      </Title>
+    </Container>
+  </Hero.Body>
+  </Hero> */
 }
