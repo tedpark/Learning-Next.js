@@ -77,7 +77,7 @@ export default function Main() {
   };
 
   function getList(id) {
-    [this.id2List[id]];
+    return id2List[id];
   }
 
   // function onDragEnd(result) {
@@ -107,18 +107,19 @@ export default function Main() {
 
     if (source.droppableId === destination.droppableId) {
       const items = reorder(
-        this.getList(source.droppableId),
+        getList(source.droppableId),
         source.index,
         destination.index
       );
 
-      let state = { items };
+      // let state = { items };
 
       if (source.droppableId === "droppable2") {
-        state = { selected: items };
+        // state = { selected: items };
+        setSelected({ items });
       }
 
-      this.setState(state);
+      // this.setState(state);
     } else {
       const result = move(
         this.getList(source.droppableId),
