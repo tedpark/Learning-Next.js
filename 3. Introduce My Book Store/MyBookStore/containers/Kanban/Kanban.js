@@ -96,15 +96,15 @@ export default function Main() {
   );
 }
 
-{
-  /* <Hero color={"info"} size="fullheight" gradient>
-  <Hero.Body>
-    <Container>
-      <Title>{"info"} Main</Title>
-      <Title as="h2" subtitle>
-        {"info"} Main
-      </Title>
-    </Container>
-  </Hero.Body>
-  </Hero> */
-}
+// {
+//   <Hero color={"info"} size="fullheight" gradient>
+//     <Hero.Body>
+//       <Container>
+//         <Title>{"info"} Main</Title>
+//         <Title as="h2" subtitle>
+//           {"info"} Main
+//         </Title>
+//       </Container>
+//     </Hero.Body>
+//   </Hero>;
+// }
