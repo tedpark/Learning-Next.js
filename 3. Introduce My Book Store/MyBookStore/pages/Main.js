@@ -73,7 +73,7 @@ export default function Main() {
 
   const [items, setItems] = useState(getItems(10));
   const [selected, setSelected] = useState(getItems(5, 10));
-
+  console.log(selected);
   // const [state, setState] = useState({ items: getItems(10) });
   // const [state, setState] = useState({ selected: getItems(5, 10) });
 
@@ -120,7 +120,8 @@ export default function Main() {
       );
 
       if (source.droppableId === "droppable2") {
-        setSelected(selected);
+        // state = { selected: items };
+        setSelected(items);
       } else {
         setItems(items);
       }
@@ -133,7 +134,7 @@ export default function Main() {
       );
 
       setItems(result.droppable);
-      setSelected(result.droppable);
+      setSelected(result.droppable2);
     }
   }
 
