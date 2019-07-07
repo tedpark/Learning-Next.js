@@ -23,10 +23,12 @@ const getItems = (count, offset = 0) =>
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
+  console.log(list);
   const result = Array.from(list);
+  console.log(result);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
-
+  console.log(result);
   return result;
 };
 
@@ -68,12 +70,17 @@ const getListStyle = isDraggingOver => ({
 export default function Main() {
   // const [items, setitems] = useState(10);
   // const [state, setState] = useState({ quotes: getItems(10) });
+
   const [items, setItems] = useState(getItems(10));
   const [selected, setSelected] = useState(getItems(5, 10));
 
+  // const [state, setState] = useState({ items: getItems(10) });
+  // const [state, setState] = useState({ selected: getItems(5, 10) });
+
+  console.log(items);
   const id2List = {
-    droppable: "items",
-    droppable2: "selected"
+    droppable: items,
+    droppable2: selected
   };
 
   function getList(id) {
@@ -112,26 +119,21 @@ export default function Main() {
         destination.index
       );
 
-      // let state = { items };
-
       if (source.droppableId === "droppable2") {
-        // state = { selected: items };
-        setSelected({ items });
+        setSelected(selected);
+      } else {
+        setItems(items);
       }
-
-      // this.setState(state);
     } else {
       const result = move(
-        this.getList(source.droppableId),
-        this.getList(destination.droppableId),
+        getList(source.droppableId),
+        getList(destination.droppableId),
         source,
         destination
       );
 
-      this.setState({
-        items: result.droppable,
-        selected: result.droppable2
-      });
+      setItems(result.droppable);
+      setSelected(result.droppable);
     }
   }
 
