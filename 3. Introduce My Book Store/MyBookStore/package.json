@@ -19,7 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@zeit/next-css": "^1.0.1",
     "classnames": "^2.2.6",
-    "next": "^8.1.0",
+    "next": "^9.0.0",
     "rbx": "^2.2.0",
     "react": "^16.8.6",
     "react-beautiful-dnd": "^11.0.4",
@@ -28,7 +28,7 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.5.4",
     "babel-core": "^7.0.0-bridge",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.8.6"
