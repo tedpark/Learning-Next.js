@@ -26,7 +26,9 @@ export default function Index() {
     >
       <Hero.Body>
         <Container style={{ marginLeft: "0px", backgroundColor: "#155B9C" }}>
-          <Title style={{ color: "white" }}>Welcome to my Book Store</Title>
+          <Title style={{ color: "white" }}>
+            Welcome to our Todo Manager Page
+          </Title>
           <Title as="h2" subtitle style={{ color: "white" }}>
             Font Awesome has grown to have over 5,000 icons and continues to add
             the most popular and needed icons. Stop hunting down missing icons
