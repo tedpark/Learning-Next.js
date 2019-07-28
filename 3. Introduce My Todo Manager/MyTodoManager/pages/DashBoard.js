@@ -16,7 +16,7 @@ export default function Index() {
       <Button.Group hasAddons>
         <Button>Yes</Button>
         <Button color="info" selected>
-          Maybe
+          Maybess
         </Button>
         <Button>No</Button>
       </Button.Group>
