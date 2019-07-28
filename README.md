@@ -1,6 +1,18 @@
 # Learning-Next.js
 
 ### 1. Introduce Myself
+Prerequisites
+
+### 2. Introduce My Start Company
+Prerequisites
+
+### 3. Introduce My Todo Manager
+Prerequisites
+
+
+
+
+### 4. KoaJs-MongoDB-JWT-StarterKit
 
 ### Prerequisites
 What things you need to install the software and how to install them
@@ -26,8 +38,32 @@ Just open http://localhost:3000.
 * linkedIn
 
 
-### 2. Introduce My Start Company
-Prerequisites
+### Routes
 
-### 3. Introduce My Todo Manager
-Prerequisites
+```
+//Social Oauth Login
+http://localhost:3000/users/auth/google/callback
+```
+
+```
+//GET products
+http://localhost:3000/products
+```
+
+
+
+### Docker
+##### Build
+```
+sudo docker build -t koajsImg .
+```
+
+##### Run (Remove Instance)
+```
+sudo docker run -it --rm -p 3000:3000 --name runningKoajs koajsImg
+```
+
+##### Run (Background Daemon Mode)
+```
+sudo docker run -d --rm -p 3000:3000 --name runningKoajs koajsImg
+```
