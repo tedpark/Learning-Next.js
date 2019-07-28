@@ -3,9 +3,15 @@
 ### 1. Introduce Myself
 Prerequisites
 
+https://github.com/EmaSuriano/gatsby-starter-mate
+
 ### 2. Introduce My Start Company
 Prerequisites
 
+```
+yarn
+yarn dev
+```
 ### 3. Introduce My Todo Manager
 Prerequisites
 
