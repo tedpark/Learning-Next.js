@@ -5,6 +5,8 @@ Prerequisites
 
 https://github.com/EmaSuriano/gatsby-starter-mate
 
+Just open http://localhost:8000.
+
 ### 2. Introduce My Start Company
 Prerequisites
 
@@ -12,10 +14,15 @@ Prerequisites
 yarn
 yarn dev
 ```
+Just open http://localhost:3000.
 ### 3. Introduce My Todo Manager
 Prerequisites
 
-
+```
+yarn
+yarn dev
+```
+Just open http://localhost:3000.
 
 
 ### 4. KoaJs-MongoDB-JWT-StarterKit
