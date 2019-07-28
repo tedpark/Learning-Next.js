@@ -8,7 +8,7 @@ export default function Index() {
     <Container>
       <Button.Group hasAddons>
         <Button color="success" selected>
-          Yes
+          Yesss
         </Button>
         <Button>Maybe</Button>
         <Button>No</Button>
