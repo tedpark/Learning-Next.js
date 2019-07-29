@@ -14,7 +14,8 @@ import "rbx/index.css";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // import Board from './src/board/board';
 // import { authorQuoteMap, generateQuoteMap } from './src/data';
-import Board from "../pages/MultiDrag/board";
+// import Board from "../pages/MultiDrag/board";
+import Board from "../pages/MultiDrag/board/board";
 import { authorQuoteMap, generateQuoteMap } from "../pages/MultiDrag/data";
 
 const data = {

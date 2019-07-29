@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@atlaskit/theme": "^9.1.2",
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -25,7 +26,8 @@
     "react-beautiful-dnd": "^11.0.4",
     "react-dom": "^16.8.6",
     "react-trello": "^2.1.4",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "url-loader": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

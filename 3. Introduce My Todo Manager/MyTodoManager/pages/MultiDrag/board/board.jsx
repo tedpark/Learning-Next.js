@@ -1,17 +1,18 @@
 // @flow
-import React, { Component } from 'react';
-import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
-import { colors } from '@atlaskit/theme';
-import type {
-  DropResult,
-  DraggableLocation,
-  DroppableProvided,
-} from '../../../src';
-import type { QuoteMap, Quote } from '../types';
-import Column from './column';
-import reorder, { reorderQuoteMap } from '../reorder';
-import { DragDropContext, Droppable } from '../../../src';
+import React, { Component } from "react";
+import styled from "@emotion/styled";
+import { Global, css } from "@emotion/core";
+import { colors } from "@atlaskit/theme";
+// import type {
+//   DropResult,
+//   DraggableLocation,
+//   DroppableProvided,
+// } from '../../../src';
+// import type { QuoteMap, Quote } from '../types';
+import Column from "./column";
+import reorder, { reorderQuoteMap } from "../reorder";
+// import { DragDropContext, Droppable } from "../../../src";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const ParentContainer = styled.div`
   height: ${({ height }) => height};
@@ -27,46 +28,46 @@ const Container = styled.div`
   display: inline-flex;
 `;
 
-type Props = {|
-  initial: QuoteMap,
-  withScrollableColumns?: boolean,
-  isCombineEnabled?: boolean,
-  containerHeight?: string,
-|};
+// Props = {|
+//   initial: QuoteMap,
+//   withScrollableColumns?: boolean,
+//   isCombineEnabled?: boolean,
+//   containerHeight?: string
+// |};
 
-type State = {|
-  columns: QuoteMap,
-  ordered: string[],
-|};
+// State = {
+//   columns: QuoteMap,
+//   ordered: string[]
+// |};
 
-export default class Board extends Component<Props, State> {
+export default class Board extends Component {
   /* eslint-disable react/sort-comp */
   static defaultProps = {
-    isCombineEnabled: false,
+    isCombineEnabled: false
   };
 
-  state: State = {
+  state = {
     columns: this.props.initial,
-    ordered: Object.keys(this.props.initial),
+    ordered: Object.keys(this.props.initial)
   };
 
-  boardRef: ?HTMLElement;
+  boardRef;
 
-  onDragEnd = (result: DropResult) => {
+  onDragEnd = result => {
     if (result.combine) {
-      if (result.type === 'COLUMN') {
-        const shallow: string[] = [...this.state.ordered];
+      if (result.type === "COLUMN") {
+        const shallow = [...this.state.ordered];
         shallow.splice(result.source.index, 1);
         this.setState({ ordered: shallow });
         return;
       }
 
-      const column: Quote[] = this.state.columns[result.source.droppableId];
-      const withQuoteRemoved: Quote[] = [...column];
+      const column = this.state.columns[result.source.droppableId];
+      const withQuoteRemoved = [...column];
       withQuoteRemoved.splice(result.source.index, 1);
-      const columns: QuoteMap = {
+      const columns = {
         ...this.state.columns,
-        [result.source.droppableId]: withQuoteRemoved,
+        [result.source.droppableId]: withQuoteRemoved
       };
       this.setState({ columns });
       return;
@@ -77,8 +78,8 @@ export default class Board extends Component<Props, State> {
       return;
     }
 
-    const source: DraggableLocation = result.source;
-    const destination: DraggableLocation = result.destination;
+    const source = result.source;
+    const destination = result.destination;
 
     // did not move anywhere - can bail early
     if (
@@ -89,15 +90,15 @@ export default class Board extends Component<Props, State> {
     }
 
     // reordering column
-    if (result.type === 'COLUMN') {
-      const ordered: string[] = reorder(
+    if (result.type === "COLUMN") {
+      const ordered = reorder(
         this.state.ordered,
         source.index,
-        destination.index,
+        destination.index
       );
 
       this.setState({
-        ordered,
+        ordered
       });
 
       return;
@@ -106,17 +107,17 @@ export default class Board extends Component<Props, State> {
     const data = reorderQuoteMap({
       quoteMap: this.state.columns,
       source,
-      destination,
+      destination
     });
 
     this.setState({
-      columns: data.quoteMap,
+      columns: data.quoteMap
     });
   };
 
   render() {
-    const columns: QuoteMap = this.state.columns;
-    const ordered: string[] = this.state.ordered;
+    const columns = this.state.columns;
+    const ordered = this.state.ordered;
     const { containerHeight } = this.props;
 
     const board = (
@@ -127,9 +128,9 @@ export default class Board extends Component<Props, State> {
         ignoreContainerClipping={Boolean(containerHeight)}
         isCombineEnabled={this.props.isCombineEnabled}
       >
-        {(provided: DroppableProvided) => (
+        {provided => (
           <Container ref={provided.innerRef} {...provided.droppableProps}>
-            {ordered.map((key: string, index: number) => (
+            {ordered.map((key, index) => (
               <Column
                 key={key}
                 index={index}

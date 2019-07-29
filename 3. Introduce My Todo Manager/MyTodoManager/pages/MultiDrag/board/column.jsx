@@ -1,13 +1,14 @@
 // @flow
-import React, { Component } from 'react';
-import styled from '@emotion/styled';
-import { colors } from '@atlaskit/theme';
-import { grid, borderRadius } from '../constants';
-import { Draggable } from '../../../src';
-import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
-import QuoteList from '../primatives/quote-list';
-import Title from '../primatives/title';
-import type { Quote } from '../types';
+import React, { Component } from "react";
+import styled from "@emotion/styled";
+import { colors } from "@atlaskit/theme";
+import { grid, borderRadius } from "../constants";
+import { Draggable } from "react-beautiful-dnd";
+
+// import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
+import QuoteList from "../primatives/quote-list";
+import Title from "../primatives/title";
+// import type { Quote } from '../types';
 
 const Container = styled.div`
   margin: ${grid}px;
@@ -30,22 +31,22 @@ const Header = styled.div`
   }
 `;
 
-type Props = {|
-  title: string,
-  quotes: Quote[],
-  index: number,
-  isScrollable?: boolean,
-  isCombineEnabled?: boolean,
-|};
+// type Props = {|
+//   title: string,
+//   quotes: Quote[],
+//   index: number,
+//   isScrollable?: boolean,
+//   isCombineEnabled?: boolean
+// |};
 
-export default class Column extends Component<Props> {
+export default class Column extends Component {
   render() {
-    const title: string = this.props.title;
-    const quotes: Quote[] = this.props.quotes;
-    const index: number = this.props.index;
+    const title = this.props.title;
+    const quotes = this.props.quotes;
+    const index = this.props.index;
     return (
       <Draggable draggableId={title} index={index}>
-        {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
+        {(provided, snapshot) => (
           <Container ref={provided.innerRef} {...provided.draggableProps}>
             <Header isDragging={snapshot.isDragging}>
               <Title
@@ -59,7 +60,7 @@ export default class Column extends Component<Props> {
               listId={title}
               listType="QUOTE"
               style={{
-                backgroundColor: snapshot.isDragging ? colors.G50 : null,
+                backgroundColor: snapshot.isDragging ? colors.G50 : null
               }}
               quotes={quotes}
               internalScroll={this.props.isScrollable}
