@@ -11,7 +11,6 @@ import {
 } from "rbx";
 import "rbx/index.css";
 //react-beautiful-dnd
-// 이거 한번 이식 해보는 걸로 하자.
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 // fake data generator
