@@ -11,9 +11,16 @@ import {
 } from "rbx";
 import "rbx/index.css";
 //react-beautiful-dnd
-// 이거 한번 이식 해보는 걸로 하자.
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import TaskApp from "./MultiDrag/task-app";
+// import Board from './src/board/board';
+// import { authorQuoteMap, generateQuoteMap } from './src/data';
+import Board from "../pages/MultiDrag/board";
+import { authorQuoteMap, generateQuoteMap } from "../pages/MultiDrag/data";
+
+const data = {
+  medium: generateQuoteMap(100),
+  large: generateQuoteMap(500)
+};
 
 // fake data generator
 const getItems = (count, offset = 0) =>
@@ -146,115 +153,5 @@ export default function Main() {
     }
   }
 
-  return (
-    <Hero color={"info"} size="fullheight" gradient>
-      <Hero.Body>
-        <Container>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly"
-            }}
-          >
-            <TaskApp />
-            <DragDropContext onDragEnd={onDragEnd}>
-              <Droppable droppableId="droppable">
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    style={getListStyle(snapshot.isDraggingOver)}
-                  >
-                    {items.map((item, index) => (
-                      <Draggable
-                        key={item.id}
-                        draggableId={item.id}
-                        index={index}
-                      >
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={getItemStyle(
-                              snapshot.isDragging,
-                              provided.draggableProps.style
-                            )}
-                          >
-                            {item.content}
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-              <Droppable droppableId="droppable2">
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    style={getListStyle(snapshot.isDraggingOver)}
-                  >
-                    {selected.map((item, index) => (
-                      <Draggable
-                        key={item.id}
-                        draggableId={item.id}
-                        index={index}
-                      >
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={getItemStyle(
-                              snapshot.isDragging,
-                              provided.draggableProps.style
-                            )}
-                          >
-                            {item.content}
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-              <Droppable droppableId="droppable3">
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    style={getListStyle(snapshot.isDraggingOver)}
-                  >
-                    {selected3.map((item, index) => (
-                      <Draggable
-                        key={item.id}
-                        draggableId={item.id}
-                        index={index}
-                      >
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={getItemStyle(
-                              snapshot.isDragging,
-                              provided.draggableProps.style
-                            )}
-                          >
-                            {item.content}
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-            </DragDropContext>
-          </div>
-        </Container>
-      </Hero.Body>
-    </Hero>
-  );
+  return <Board initial={authorQuoteMap} />;
 }
