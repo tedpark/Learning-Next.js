@@ -49,7 +49,18 @@ const princess = {
   }
 };
 
-export const authors = [jake, BMO, finn, princess];
+const prin = {
+  id: "5",
+  name: "Prin1",
+  url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
+  avatarUrl: princessImg,
+  colors: {
+    soft: colors.P50,
+    hard: colors.P200
+  }
+};
+
+export const authors = [jake, BMO, finn, princess, prin];
 
 export const quotes = [
   {
@@ -116,7 +127,7 @@ export const quotes = [
 ];
 
 // So we do not have any clashes with our hardcoded ones
-let idCount = quotes.length + 1;
+let idCount = quotes.length + 2;
 
 export const getQuotes = count =>
   Array.from({ length: count }, (v, k) => k).map(() => {

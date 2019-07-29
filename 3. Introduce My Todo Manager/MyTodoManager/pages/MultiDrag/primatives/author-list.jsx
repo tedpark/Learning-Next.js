@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
-import { Droppable, Draggable } from "../../../src";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 import Author from "./author-item";
 import { grid } from "../constants";
 // import type { Quote } from '../types';
