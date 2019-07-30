@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 import {
   Container,
   Delete,
@@ -47,42 +47,44 @@ export default function Login() {
         >
           <Box>
             <Field>
-              <Control iconLeft iconRight>
-                <Input type="email" placeholder="Email" />
-                <Icon size="small" align="left">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </Icon>
-                <Icon size="small" align="right">
-                  <FontAwesomeIcon icon={faCheck} />
-                </Icon>
-              </Control>
+              <FacebookLoginButton
+                onClick={() =>
+                  Router.push({
+                    pathname: "/users/auth/facebook/callback"
+                    // query: { name: "Someone" }
+                  })
+                }
+              />
             </Field>
             <Field>
-              <Control iconLeft>
-                <Input type="password" placeholder="Password" />
-                <Icon size="small" align="left">
-                  <FontAwesomeIcon icon={faLock} />
-                </Icon>
-              </Control>
+              <GoogleLoginButton
+                onClick={() =>
+                  Router.push({
+                    pathname: "/users/auth/google/callback"
+                    // query: { name: "Someone" }
+                  })
+                }
+              />
             </Field>
             <Field>
-              <Control>
-                <Button color="info" onClick={() => Router.push("/main")}>
-                  <strong>Login</strong>
-                </Button>
-              </Control>
+              <TwitterLoginButton
+                onClick={() =>
+                  Router.push({
+                    pathname: "/users/auth/twitter/callback"
+                    // query: { name: "Someone" }
+                  })
+                }
+              />
             </Field>
             <Field>
-              <FacebookLoginButton onClick={() => alert("Hello")} />
-            </Field>
-            <Field>
-              <GoogleLoginButton onClick={() => alert("Hello")} />
-            </Field>
-            <Field>
-              <TwitterLoginButton onClick={() => alert("Hello")} />
-            </Field>
-            <Field>
-              <LinkedInLoginButton onClick={() => alert("Hello")} />
+              <LinkedInLoginButton
+                onClick={() =>
+                  Router.push({
+                    pathname: "/users/auth/linkedin/callback"
+                    // query: { name: "Someone" }
+                  })
+                }
+              />
             </Field>
           </Box>
         </Container>

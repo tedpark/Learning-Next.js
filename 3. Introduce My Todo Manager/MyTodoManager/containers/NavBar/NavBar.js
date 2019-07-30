@@ -27,10 +27,6 @@ const NavBar = (props, { children }) => {
               <Button color="info" onClick={() => Router.push("/login")}>
                 <strong>Login</strong>
               </Button>
-              <Button color="primary" onClick={() => Router.push("/signup")}>
-                <strong>SignUp</strong>
-              </Button>
-              {/* <Button color="primary">Github</Button> */}
             </Button.Group>
           </Navbar.Item>
         </Navbar.Segment>
