@@ -10,6 +10,7 @@ import {
   Title
 } from "rbx";
 import "rbx/index.css";
+import json from "../pages/MultiDrag/JsonData";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // import Board from './src/board/board';
 // import { authorQuoteMap, generateQuoteMap } from './src/data';
@@ -21,9 +22,10 @@ const data = {
   medium: generateQuoteMap(100),
   large: generateQuoteMap(500)
 };
-console.log(authorQuoteMap);
+// console.log(authorQuoteMap);
 // console.table(authorQuoteMap);
+console.log(json);
 
 export default function Main() {
-  return <Board initial={authorQuoteMap} />;
+  return <Board initial={json} />;
 }
