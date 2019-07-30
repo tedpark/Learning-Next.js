@@ -5,6 +5,11 @@ import finnImg from "../assets/finn.png";
 import bmoImg from "../assets/bmo.png";
 import princessImg from "../assets/princess.png";
 
+// let jakeImg = "jakeImg";
+// let finnImg = "finnImg";
+// let bmoImg = "bmoImg";
+// let princessImg = "princessImg";
+
 const jake = {
   id: "1",
   name: "Jake",
