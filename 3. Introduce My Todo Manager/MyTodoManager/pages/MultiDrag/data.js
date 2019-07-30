@@ -51,7 +51,7 @@ const princess = {
 
 const prin = {
   id: "5",
-  name: "Prin1",
+  name: "Prin",
   url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
   avatarUrl: princessImg,
   colors: {
@@ -122,7 +122,17 @@ export const quotes = [
   {
     id: "12",
     content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
-    author: princess
+    author: prin
+  },
+  {
+    id: "13",
+    content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
+    author: prin
+  },
+  {
+    id: "14",
+    content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
+    author: prin
   }
 ];
 

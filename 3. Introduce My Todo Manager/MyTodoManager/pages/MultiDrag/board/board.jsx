@@ -28,18 +28,6 @@ const Container = styled.div`
   display: inline-flex;
 `;
 
-// Props = {|
-//   initial: QuoteMap,
-//   withScrollableColumns?: boolean,
-//   isCombineEnabled?: boolean,
-//   containerHeight?: string
-// |};
-
-// State = {
-//   columns: QuoteMap,
-//   ordered: string[]
-// |};
-
 export default class Board extends Component {
   /* eslint-disable react/sort-comp */
   static defaultProps = {

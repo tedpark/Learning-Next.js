@@ -31,14 +31,6 @@ const Header = styled.div`
   }
 `;
 
-// type Props = {|
-//   title: string,
-//   quotes: Quote[],
-//   index: number,
-//   isScrollable?: boolean,
-//   isCombineEnabled?: boolean
-// |};
-
 export default class Column extends Component {
   render() {
     const title = this.props.title;
