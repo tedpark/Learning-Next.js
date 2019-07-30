@@ -26,6 +26,12 @@ import {
   faCheck,
   faLock
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  FacebookLoginButton,
+  GoogleLoginButton,
+  TwitterLoginButton,
+  LinkedInLoginButton
+} from "react-social-login-buttons";
 
 export default function Login() {
   return (
@@ -65,6 +71,18 @@ export default function Login() {
                   <strong>Login</strong>
                 </Button>
               </Control>
+            </Field>
+            <Field>
+              <FacebookLoginButton onClick={() => alert("Hello")} />
+            </Field>
+            <Field>
+              <GoogleLoginButton onClick={() => alert("Hello")} />
+            </Field>
+            <Field>
+              <TwitterLoginButton onClick={() => alert("Hello")} />
+            </Field>
+            <Field>
+              <LinkedInLoginButton onClick={() => alert("Hello")} />
             </Field>
           </Box>
         </Container>
