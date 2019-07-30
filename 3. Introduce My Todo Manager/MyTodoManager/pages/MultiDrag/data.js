@@ -60,7 +60,18 @@ const prin = {
   }
 };
 
-export const authors = [jake, BMO, finn, princess, prin];
+const ted = {
+  id: "6",
+  name: "Ted",
+  url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
+  avatarUrl: princessImg,
+  colors: {
+    soft: colors.P50,
+    hard: colors.P200
+  }
+};
+
+export const authors = [jake, BMO, finn, princess, prin, ted];
 
 export const quotes = [
   {
