@@ -4,13 +4,14 @@ import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
 import { grid, borderRadius } from "../constants";
 import { Draggable } from "react-beautiful-dnd";
+import ReactModal from "react-modal";
 
 // import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
 import QuoteList from "../primatives/quote-list";
 import Title from "../primatives/title";
 // import type { Quote } from '../types';
 
-import { Button, Modal } from "rbx";
+import { Button, Textarea, Control } from "rbx";
 import "rbx/index.css";
 
 const Container = styled.div`
@@ -33,45 +34,105 @@ const Header = styled.div`
     background-color: ${colors.G50};
   }
 `;
+ReactModal.setAppElement("#__next");
+
+const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(52, 52, 52, 0.8)"
+  },
+  modal: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    backgroundColor: "#155B9C",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  },
+  content: {
+    top: "50%",
+    left: "50%",
+    border: "0px",
+    color: "white",
+    backgroundColor: "#155B9C",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
 
 export default class Column extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showModal: false
+    };
+
+    // this.handleOpenModal = this.handleOpenModal.bind(this);
+    // this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     const title = this.props.title;
     const quotes = this.props.quotes;
     const index = this.props.index;
     return (
-      // http://reactcommunity.org/react-modal/examples/minimal.html
-      <Draggable draggableId={title} index={index}>
-        {(provided, snapshot) => (
-          <Container ref={provided.innerRef} {...provided.draggableProps}>
-            <Header isDragging={snapshot.isDragging}>
-              <Title
-                isDragging={snapshot.isDragging}
-                {...provided.dragHandleProps}
-              >
-                {title}
-              </Title>
-              <Button
-                style={{ margin: 10 }}
-                color="info"
-                onClick={() => console.log(title)}
-              >
-                <strong>Add</strong>
-              </Button>
-            </Header>
-            <QuoteList
-              listId={title}
-              listType="QUOTE"
-              style={{
-                backgroundColor: snapshot.isDragging ? colors.G50 : null
-              }}
-              quotes={quotes}
-              internalScroll={this.props.isScrollable}
-              isCombineEnabled={Boolean(this.props.isCombineEnabled)}
-            />
-          </Container>
-        )}
-      </Draggable>
+      <>
+        <Draggable draggableId={title} index={index}>
+          {(provided, snapshot) => (
+            <Container ref={provided.innerRef} {...provided.draggableProps}>
+              <Header isDragging={snapshot.isDragging}>
+                <Title
+                  isDragging={snapshot.isDragging}
+                  {...provided.dragHandleProps}
+                >
+                  {title}
+                </Title>
+                <Button
+                  style={{ margin: 10 }}
+                  color="info"
+                  // onClick={() => console.log(title)}
+                  onClick={() => this.handleOpenModal()}
+                >
+                  <strong>Add</strong>
+                </Button>
+              </Header>
+              <QuoteList
+                listId={title}
+                listType="QUOTE"
+                style={{
+                  backgroundColor: snapshot.isDragging ? colors.G50 : null
+                }}
+                quotes={quotes}
+                internalScroll={this.props.isScrollable}
+                isCombineEnabled={Boolean(this.props.isCombineEnabled)}
+              />
+            </Container>
+          )}
+        </Draggable>
+        <ReactModal
+          // style={{ width: 20 }}
+          style={customStyles}
+          isOpen={this.state.showModal}
+          contentLabel="onRequestClose Example"
+          onRequestClose={() => this.handleCloseModal()}
+        >
+          {/* <p>Modal text!</p> */}
+          <Control>
+            <Textarea placeholder="Fixed-size textarea" fixedSize />
+          </Control>
+          <Button onClick={() => this.handleCloseModal()}>Close Modal</Button>
+        </ReactModal>
+      </>
     );
   }
 }
