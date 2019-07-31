@@ -10,6 +10,9 @@ import QuoteList from "../primatives/quote-list";
 import Title from "../primatives/title";
 // import type { Quote } from '../types';
 
+import { Button } from "rbx";
+import "rbx/index.css";
+
 const Container = styled.div`
   margin: ${grid}px;
   display: flex;
@@ -47,6 +50,13 @@ export default class Column extends Component {
               >
                 {title}
               </Title>
+              <Button
+                style={{ margin: 10 }}
+                color="info"
+                onClick={() => console.log(title)}
+              >
+                <strong>Add</strong>
+              </Button>
             </Header>
             <QuoteList
               listId={title}
