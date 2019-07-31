@@ -3,6 +3,10 @@ import React from "react";
 import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
 import { borderRadius, grid } from "../constants";
+import jakeImg from "../../assets/jake.png";
+import finnImg from "../../assets/finn.png";
+import bmoImg from "../../assets/bmo.png";
+import princessImg from "../../assets/princess.png";
 // import type { Quote, AuthorColors } from '../types';
 // import type { DraggableProvided } from '../../../src';
 
@@ -118,6 +122,25 @@ const QuoteId = styled.small`
   text-align: right;
 `;
 
+function getImage(params) {
+  switch (params) {
+    case "jakeImg":
+      return jakeImg;
+      break;
+    case "finnImg":
+      return finnImg;
+      break;
+    case "bmoImg":
+      return bmoImg;
+      break;
+    case "princessImg":
+      return princessImg;
+      break;
+    default:
+    // code block
+  }
+}
+
 // Previously this extended React.Component
 // That was a good thing, because using React.PureComponent can hide
 // issues with the selectors. However, moving it over does can considerable
@@ -138,7 +161,7 @@ function QuoteItem(props) {
       {...provided.draggableProps}
       {...provided.dragHandleProps}
     >
-      <Avatar src={quote.author.avatarUrl} alt={quote.author.name} />
+      <Avatar src={getImage(quote.author.avatarUrl)} alt={quote.author.name} />
       <Content>
         <BlockQuote>{quote.content}</BlockQuote>
         <Footer>
@@ -151,3 +174,8 @@ function QuoteItem(props) {
 }
 
 export default React.memo(QuoteItem);
+
+// import jakeImg from "../../assets/jake.png";
+// import finnImg from "../../assets/finn.png";
+// import bmoImg from "../../assets/bmo.png";
+// import princessImg from "../../assets/princess.png";
