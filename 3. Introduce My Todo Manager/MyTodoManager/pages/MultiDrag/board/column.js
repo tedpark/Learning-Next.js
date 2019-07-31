@@ -132,7 +132,11 @@ export default class Column extends Component {
                 justifyContent: "flex-end"
               }}
             >
-              <Textarea placeholder="Todo..." fixedSize />
+              <Textarea
+                style={{ width: 340 }}
+                placeholder="Todo..."
+                fixedSize
+              />
               <Button
                 style={{ marginTop: 10, position: "absolute", right: 0 }}
                 color="info"
