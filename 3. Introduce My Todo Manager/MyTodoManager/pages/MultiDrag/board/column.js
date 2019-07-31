@@ -40,17 +40,17 @@ const customStyles = {
   overlay: {
     backgroundColor: "rgba(52, 52, 52, 0.8)"
   },
-  modal: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    backgroundColor: "#155B9C",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  },
+  // modal: {
+  //   top: "50%",
+  //   left: "50%",
+  //   right: "auto",
+  //   bottom: "auto",
+  //   marginRight: "-50%",
+  //   transform: "translate(-50%, -50%)"
+  // },
   content: {
     top: "50%",
+    height: "200px",
     left: "50%",
     border: "0px",
     color: "white",
@@ -68,9 +68,6 @@ export default class Column extends Component {
     this.state = {
       showModal: false
     };
-
-    // this.handleOpenModal = this.handleOpenModal.bind(this);
-    // this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   handleOpenModal = () => {
@@ -128,9 +125,23 @@ export default class Column extends Component {
         >
           {/* <p>Modal text!</p> */}
           <Control>
-            <Textarea placeholder="Fixed-size textarea" fixedSize />
+            <div
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "flex-end"
+              }}
+            >
+              <Textarea placeholder="Todo..." fixedSize />
+              <Button
+                style={{ marginTop: 10, position: "absolute", right: 0 }}
+                color="info"
+                onClick={() => this.handleCloseModal()}
+              >
+                <strong>Save</strong>
+              </Button>
+            </div>
           </Control>
-          <Button onClick={() => this.handleCloseModal()}>Close Modal</Button>
         </ReactModal>
       </>
     );
