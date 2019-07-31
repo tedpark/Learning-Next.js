@@ -10,7 +10,7 @@ import QuoteList from "../primatives/quote-list";
 import Title from "../primatives/title";
 // import type { Quote } from '../types';
 
-import { Button } from "rbx";
+import { Button, Modal } from "rbx";
 import "rbx/index.css";
 
 const Container = styled.div`
@@ -40,6 +40,7 @@ export default class Column extends Component {
     const quotes = this.props.quotes;
     const index = this.props.index;
     return (
+      // http://reactcommunity.org/react-modal/examples/minimal.html
       <Draggable draggableId={title} index={index}>
         {(provided, snapshot) => (
           <Container ref={provided.innerRef} {...provided.draggableProps}>
