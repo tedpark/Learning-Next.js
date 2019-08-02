@@ -17,13 +17,11 @@ import axios from "axios";
 
 async function getKanbanData() {
   try {
-    const response = await axios.get(
-      "localhost:3000" + "/auth/getUserProfileWithToken"
-    );
+    const response = await axios.get("http://localhost:3000" + "/todos");
     console.log(response);
-    this.setState({
-      view: <MainLayoutView />
-    });
+    // this.setState({
+    //   view: <MainLayoutView />
+    // });
     //TODO if login Success go MainLayoutView
   } catch (error) {
     console.error(error);

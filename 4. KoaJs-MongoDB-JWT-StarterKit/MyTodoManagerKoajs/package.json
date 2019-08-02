@@ -11,7 +11,9 @@
     "dev": "pm2 start src/app.js --watch --no-daemon"
   },
   "dependencies": {
+    "@koa/cors": "^3.0.0",
     "composable-middleware": "^0.3.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
