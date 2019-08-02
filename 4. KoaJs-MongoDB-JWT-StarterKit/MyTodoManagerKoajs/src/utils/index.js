@@ -24,6 +24,10 @@ function decodeToken(token) {
 
 exports.isAuthenticated = () => {
   return async (ctx, next) => {
+    return next();
+  };
+  /*
+  return async (ctx, next) => {
     if (ctx.request.header.authorization === undefined) {
       return (ctx.body = {
         status: "fail",
@@ -44,4 +48,5 @@ exports.isAuthenticated = () => {
       });
     }
   };
+  */
 };
