@@ -1,4 +1,4 @@
-const dataModel = require("../models/product.model");
+const dataModel = require("../models/todo.model");
 const Router = require("koa-router");
 const { isAuthenticated } = require("../utils");
 const router = new Router();

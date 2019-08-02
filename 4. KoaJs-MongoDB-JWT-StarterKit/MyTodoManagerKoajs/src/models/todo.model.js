@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Products = mongoose.Schema(
+const Todos = mongoose.Schema(
   {
     title: String,
     description: String,
@@ -12,4 +12,4 @@ const Products = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Products", Products);
+module.exports = mongoose.model("Todos", Todos);
