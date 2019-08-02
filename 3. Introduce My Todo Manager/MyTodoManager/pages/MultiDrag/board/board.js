@@ -11,8 +11,12 @@ import { colors } from "@atlaskit/theme";
 // import type { QuoteMap, Quote } from '../types';
 import Column from "./column";
 import reorder, { reorderQuoteMap } from "../reorder";
-// import { DragDropContext, Droppable } from "../../../src";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  resetServerContext
+} from "react-beautiful-dnd";
 
 const ParentContainer = styled.div`
   height: ${({ height }) => height};
@@ -104,6 +108,7 @@ export default class Board extends Component {
   };
 
   render() {
+    resetServerContext();
     const columns = this.state.columns;
     const ordered = this.state.ordered;
     const { containerHeight } = this.props;

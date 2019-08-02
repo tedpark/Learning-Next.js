@@ -10,7 +10,6 @@ import {
 } from "rbx";
 import "rbx/index.css";
 import json from "../pages/MultiDrag/JsonData";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Board from "../pages/MultiDrag/board/board";
 import { authorQuoteMap, generateQuoteMap } from "../pages/MultiDrag/data";
 import axios from "axios";
