@@ -24,6 +24,9 @@ const NavBar = (props, { children }) => {
         <Navbar.Segment align="end">
           <Navbar.Item style={{ backgroundColor: "#155B9C" }}>
             <Button.Group>
+              <Button color="info" onClick={() => Router.push("/main")}>
+                <strong>Main</strong>
+              </Button>
               <Button color="info" onClick={() => Router.push("/login")}>
                 <strong>Login</strong>
               </Button>
