@@ -10,7 +10,7 @@ import princessImg from "../../../assets/princess.png";
 // import type { Quote, AuthorColors } from '../types';
 // import type { DraggableProvided } from '../../../src';
 
-// type Props = {
+// Props = {
 //   quote: Quote,
 //   isDragging: boolean,
 //   provided: DraggableProvided,
