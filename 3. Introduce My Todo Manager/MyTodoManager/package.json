@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next -p 9000",
     "build": "next build",
+    "export": "next export",
     "start": "next start"
   },
   "keywords": [],
