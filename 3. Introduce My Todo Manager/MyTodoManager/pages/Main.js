@@ -9,7 +9,7 @@ import {
   Title
 } from "rbx";
 import "rbx/index.css";
-import json from "../pages/MultiDrag/JsonData";
+import json from "../JsonData";
 import Board from "../pages/MultiDrag/board/board";
 import { authorQuoteMap, generateQuoteMap } from "../data";
 import axios from "axios";

@@ -1,4 +1,3 @@
-// @flow
 // import type { Quote, QuoteMap } from './types';
 // import type { DraggableLocation } from '../../src/types';
 

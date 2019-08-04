@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
@@ -83,7 +82,7 @@ export default class Column extends Component {
     const quotes = this.props.quotes;
     const index = this.props.index;
     return (
-      <>
+      <div>
         <Draggable draggableId={title} index={index}>
           {(provided, snapshot) => (
             <Container ref={provided.innerRef} {...provided.draggableProps}>
@@ -147,7 +146,7 @@ export default class Column extends Component {
             </div>
           </Control>
         </ReactModal>
-      </>
+      </div>
     );
   }
 }
