@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["2a54"],{HOlU:function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/main",function(){var n=o("KnIj");return{page:n.default||n}}])},KnIj:function(n,w){}},[["HOlU","5d41"]]]);

@@ -11,7 +11,7 @@ import {
 import "rbx/index.css";
 import json from "../pages/MultiDrag/JsonData";
 import Board from "../pages/MultiDrag/board/board";
-import { authorQuoteMap, generateQuoteMap } from "../pages/MultiDrag/data";
+import { authorQuoteMap, generateQuoteMap } from "../data";
 import axios from "axios";
 
 async function getKanbanData() {
