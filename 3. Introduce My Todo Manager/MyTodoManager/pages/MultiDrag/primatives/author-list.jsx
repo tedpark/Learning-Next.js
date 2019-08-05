@@ -4,14 +4,14 @@ import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import Author from "./author-item";
-import { grid } from "../constants";
-import type { Quote } from "../types";
+import { grid } from "../../../constants";
+import type { Quote } from "../../../types.js";
 import type {
   DroppableProvided,
   DroppableStateSnapshot,
   DraggableProvided,
   DraggableStateSnapshot
-} from "../types.js";
+} from "../../../types.js";
 
 const Wrapper = styled.div`
   background-color: ${({ isDraggingOver }) =>

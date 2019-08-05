@@ -1,16 +1,12 @@
 // @flow
 import { colors } from "@atlaskit/theme";
+import type { Author, Quote, QuoteMap } from "./types";
 import jakeImg from "./assets/jake.png";
 import finnImg from "./assets/finn.png";
 import bmoImg from "./assets/bmo.png";
 import princessImg from "./assets/princess.png";
 
-// let jakeImg = "jakeImg";
-// let finnImg = "finnImg";
-// let bmoImg = "bmoImg";
-// let princessImg = "princessImg";
-
-const jake = {
+const jake: Author = {
   id: "1",
   name: "Jake",
   url: "http://adventuretime.wikia.com/wiki/Jake",
@@ -21,7 +17,7 @@ const jake = {
   }
 };
 
-const BMO = {
+const BMO: Author = {
   id: "2",
   name: "BMO",
   url: "http://adventuretime.wikia.com/wiki/BMO",
@@ -32,7 +28,7 @@ const BMO = {
   }
 };
 
-const finn = {
+const finn: Author = {
   id: "3",
   name: "Finn",
   url: "http://adventuretime.wikia.com/wiki/Finn",
@@ -43,7 +39,7 @@ const finn = {
   }
 };
 
-const princess = {
+const princess: Author = {
   id: "4",
   name: "Princess bubblegum",
   url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
@@ -54,31 +50,9 @@ const princess = {
   }
 };
 
-const prin = {
-  id: "5",
-  name: "Prin",
-  url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
-  avatarUrl: princessImg,
-  colors: {
-    soft: colors.P50,
-    hard: colors.P200
-  }
-};
+export const authors: Author[] = [jake, BMO, finn, princess];
 
-const ted = {
-  id: "6",
-  name: "Ted",
-  url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
-  avatarUrl: princessImg,
-  colors: {
-    soft: colors.P50,
-    hard: colors.P200
-  }
-};
-
-export const authors = [jake, BMO, finn, princess, prin, ted];
-
-export const quotes = [
+export const quotes: Quote[] = [
   {
     id: "1",
     content: "Sometimes life is scary and dark",
@@ -138,28 +112,18 @@ export const quotes = [
   {
     id: "12",
     content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
-    author: prin
-  },
-  {
-    id: "13",
-    content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
-    author: prin
-  },
-  {
-    id: "14",
-    content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
-    author: prin
+    author: princess
   }
 ];
 
 // So we do not have any clashes with our hardcoded ones
-let idCount = quotes.length + 2;
+let idCount: number = quotes.length + 1;
 
-export const getQuotes = count =>
+export const getQuotes = (count: number): Quote[] =>
   Array.from({ length: count }, (v, k) => k).map(() => {
-    const random = quotes[Math.floor(Math.random() * quotes.length)];
+    const random: Quote = quotes[Math.floor(Math.random() * quotes.length)];
 
-    const custom = {
+    const custom: Quote = {
       ...random,
       id: `G${idCount++}`
     };
@@ -167,11 +131,11 @@ export const getQuotes = count =>
     return custom;
   });
 
-export const getAuthors = count =>
+export const getAuthors = (count: number): Author[] =>
   Array.from({ length: count }, (v, k) => k).map(() => {
-    const random = authors[Math.floor(Math.random() * authors.length)];
+    const random: Author = authors[Math.floor(Math.random() * authors.length)];
 
-    const custom = {
+    const custom: Author = {
       ...random,
       id: `author-${idCount++}`
     };
@@ -179,20 +143,20 @@ export const getAuthors = count =>
     return custom;
   });
 
-const getByAuthor = (author, items) =>
-  items.filter(quote => quote.author === author);
+const getByAuthor = (author: Author, items: Quote[]): Quote[] =>
+  items.filter((quote: Quote) => quote.author === author);
 
-export const authorQuoteMap = authors.reduce(
-  (previous, author) => ({
+export const authorQuoteMap: QuoteMap = authors.reduce(
+  (previous: QuoteMap, author: Author) => ({
     ...previous,
     [author.name]: getByAuthor(author, quotes)
   }),
   {}
 );
 
-export const generateQuoteMap = quoteCount =>
+export const generateQuoteMap = (quoteCount: number): QuoteMap =>
   authors.reduce(
-    (previous, author) => ({
+    (previous: QuoteMap, author: Author) => ({
       ...previous,
       [author.name]: getQuotes(quoteCount / authors.length)
     }),

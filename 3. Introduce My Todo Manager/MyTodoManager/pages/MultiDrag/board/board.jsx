@@ -7,8 +7,8 @@ import type {
   DropResult,
   DraggableLocation,
   DroppableProvided
-} from "../types.js";
-import type { QuoteMap, Quote } from "../types.js";
+} from "../../../types.js";
+import type { QuoteMap, Quote } from "../../../types.js";
 import Column from "./column";
 import reorder, { reorderQuoteMap } from "../reorder";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";

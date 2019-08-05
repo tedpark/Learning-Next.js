@@ -1,10 +1,13 @@
 // @flow
-import React, { Component } from 'react';
-import styled from '@emotion/styled';
-import { colors } from '@atlaskit/theme';
-import { grid } from '../constants';
-import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
-import type { Author } from '../types';
+import React, { Component } from "react";
+import styled from "@emotion/styled";
+import { colors } from "@atlaskit/theme";
+import { grid } from "../../../constants";
+import type {
+  DraggableProvided,
+  DraggableStateSnapshot
+} from "../../../types.js";
+import type { Author } from "../../../types.js";
 
 const Avatar = styled.img`
   width: 60px;
@@ -15,7 +18,7 @@ const Avatar = styled.img`
   border-style: solid;
   border-width: ${grid}px;
   box-shadow: ${({ isDragging }) =>
-    isDragging ? `2px 2px 1px ${colors.N200}` : 'none'};
+    isDragging ? `2px 2px 1px ${colors.N200}` : "none"};
 
   &:focus {
     /* disable standard focus color */
@@ -30,7 +33,7 @@ const Avatar = styled.img`
 type Props = {|
   author: Author,
   provided: DraggableProvided,
-  snapshot: DraggableStateSnapshot,
+  snapshot: DraggableStateSnapshot
 |};
 
 export default class AuthorItem extends Component<Props> {

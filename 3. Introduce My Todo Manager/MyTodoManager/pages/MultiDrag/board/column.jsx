@@ -2,12 +2,15 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
-import { grid, borderRadius } from "../constants";
+import { grid, borderRadius } from "../../../constants";
 import { Draggable } from "react-beautiful-dnd";
-import type { DraggableProvided, DraggableStateSnapshot } from "../types.js";
+import type {
+  DraggableProvided,
+  DraggableStateSnapshot
+} from "../../../types.js";
 import QuoteList from "../primatives/quote-list";
 import Title from "../primatives/title";
-import type { Quote } from "../types";
+import type { Quote } from "../../../types.js";
 
 const Container = styled.div`
   margin: ${grid}px;

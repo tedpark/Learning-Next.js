@@ -1,7 +1,7 @@
 // @flow
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { grid } from '../constants';
+import { grid } from '../../../constants';
 
 export default styled.h4`
   padding: ${grid}px;

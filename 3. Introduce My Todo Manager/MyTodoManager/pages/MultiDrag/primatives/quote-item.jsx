@@ -2,9 +2,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
-import { borderRadius, grid } from "../constants";
-import type { Quote, AuthorColors } from "../types";
-import type { DraggableProvided } from "../types";
+import { borderRadius, grid } from "../../../constants";
+import type { Quote, AuthorColors } from "../../../types.js";
+import type { DraggableProvided } from "../../../types.js";
 
 type Props = {
   quote: Quote,

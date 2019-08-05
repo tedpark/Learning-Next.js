@@ -1,11 +1,11 @@
 // @flow
-import type { DraggableId, DraggableLocation } from '../../src/types';
+import type { DraggableId, DraggableLocation } from "../../src/types";
 
 export type Id = string;
 
 export type AuthorColors = {|
   soft: string,
-  hard: string,
+  hard: string
 |};
 
 export type Author = {|
@@ -13,25 +13,25 @@ export type Author = {|
   name: string,
   avatarUrl: string,
   url: string,
-  colors: AuthorColors,
+  colors: AuthorColors
 |};
 
 export type Quote = {|
   id: Id,
   content: string,
-  author: Author,
+  author: Author
 |};
 
 export type Dragging = {|
   id: DraggableId,
-  location: DraggableLocation,
+  location: DraggableLocation
 |};
 
 export type QuoteMap = {
-  [key: string]: Quote[],
+  [key: string]: Quote[]
 };
 
 export type Task = {|
   id: Id,
-  content: string,
+  content: string
 |};

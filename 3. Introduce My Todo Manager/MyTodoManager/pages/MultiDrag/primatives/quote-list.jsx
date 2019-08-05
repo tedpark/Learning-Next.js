@@ -4,9 +4,9 @@ import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import QuoteItem from "./quote-item";
-import { grid } from "../constants";
+import { grid } from "../../../constants";
 import Title from "./title";
-import type { Quote } from "../types";
+import type { Quote } from "../../../types.js";
 import type {
   DroppableProvided,
   DroppableStateSnapshot,
