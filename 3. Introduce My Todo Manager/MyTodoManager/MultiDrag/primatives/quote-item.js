@@ -2,11 +2,11 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
-import { borderRadius, grid } from "../../../constants";
-import jakeImg from "../../../assets/jake.png";
-import finnImg from "../../../assets/finn.png";
-import bmoImg from "../../../assets/bmo.png";
-import princessImg from "../../../assets/princess.png";
+import { borderRadius, grid } from "../../constants";
+import jakeImg from "../../assets/jake.png";
+import finnImg from "../../assets/finn.png";
+import bmoImg from "../../assets/bmo.png";
+import princessImg from "../../assets/princess.png";
 // import type { Quote, AuthorColors } from '../types';
 // import type { DraggableProvided } from '../../../src';
 

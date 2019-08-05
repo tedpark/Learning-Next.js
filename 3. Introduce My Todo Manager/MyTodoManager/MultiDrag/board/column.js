@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { colors } from "@atlaskit/theme";
-import { grid, borderRadius } from "../../../constants";
+import { grid, borderRadius } from "../../constants";
 import { Draggable } from "react-beautiful-dnd";
 import ReactModal from "react-modal";
 
