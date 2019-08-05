@@ -1,17 +1,17 @@
 // @flow
-import React, { Component } from 'react';
-import styled from '@emotion/styled';
-import { colors } from '@atlaskit/theme';
-import { Droppable, Draggable } from '../../../src';
-import Author from './author-item';
-import { grid } from '../constants';
-import type { Quote } from '../types';
+import React, { Component } from "react";
+import styled from "@emotion/styled";
+import { colors } from "@atlaskit/theme";
+import { Droppable, Draggable } from "react-beautiful-dnd";
+import Author from "./author-item";
+import { grid } from "../constants";
+import type { Quote } from "../types";
 import type {
   DroppableProvided,
   DroppableStateSnapshot,
   DraggableProvided,
-  DraggableStateSnapshot,
-} from '../../../src';
+  DraggableStateSnapshot
+} from "../types.js";
 
 const Wrapper = styled.div`
   background-color: ${({ isDraggingOver }) =>
@@ -60,12 +60,12 @@ type Props = {|
   listId: string,
   listType?: string,
   internalScroll?: boolean,
-  isCombineEnabled?: boolean,
+  isCombineEnabled?: boolean
 |};
 
 export default class AuthorList extends Component<Props> {
   static defaultProps = {
-    isCombineEnabled: false,
+    isCombineEnabled: false
   };
   renderBoard = (dropProvided: DroppableProvided) => {
     const { quotes } = this.props;
@@ -77,7 +77,7 @@ export default class AuthorList extends Component<Props> {
             <Draggable key={quote.id} draggableId={quote.id} index={index}>
               {(
                 dragProvided: DraggableProvided,
-                dragSnapshot: DraggableStateSnapshot,
+                dragSnapshot: DraggableStateSnapshot
               ) => (
                 <Author
                   author={quote.author}
@@ -105,7 +105,7 @@ export default class AuthorList extends Component<Props> {
       >
         {(
           dropProvided: DroppableProvided,
-          dropSnapshot: DroppableStateSnapshot,
+          dropSnapshot: DroppableStateSnapshot
         ) => (
           <Wrapper
             isDraggingOver={dropSnapshot.isDraggingOver}

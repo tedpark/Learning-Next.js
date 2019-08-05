@@ -1,22 +1,22 @@
 // @flow
-import React from 'react';
-import styled from '@emotion/styled';
-import { colors } from '@atlaskit/theme';
-import { borderRadius, grid } from '../constants';
-import type { Quote, AuthorColors } from '../types';
-import type { DraggableProvided } from '../../../src';
+import React from "react";
+import styled from "@emotion/styled";
+import { colors } from "@atlaskit/theme";
+import { borderRadius, grid } from "../constants";
+import type { Quote, AuthorColors } from "../types";
+import type { DraggableProvided } from "../types";
 
 type Props = {
   quote: Quote,
   isDragging: boolean,
   provided: DraggableProvided,
-  isGroupedOver?: boolean,
+  isGroupedOver?: boolean
 };
 
 const getBackgroundColor = (
   isDragging: boolean,
   isGroupedOver: boolean,
-  authorColors: AuthorColors,
+  authorColors: AuthorColors
 ) => {
   if (isDragging) {
     return authorColors.soft;
@@ -30,7 +30,7 @@ const getBackgroundColor = (
 };
 
 const getBorderColor = (isDragging: boolean, authorColors: AuthorColors) =>
-  isDragging ? authorColors.hard : 'transparent';
+  isDragging ? authorColors.hard : "transparent";
 
 const Container = styled.a`
   border-radius: ${borderRadius}px;
@@ -39,7 +39,7 @@ const Container = styled.a`
   background-color: ${props =>
     getBackgroundColor(props.isDragging, props.isGroupedOver, props.colors)};
   box-shadow: ${({ isDragging }) =>
-    isDragging ? `2px 2px 1px ${colors.N70}` : 'none'};
+    isDragging ? `2px 2px 1px ${colors.N70}` : "none"};
   padding: ${grid}px;
   min-height: 40px;
   margin-bottom: ${grid}px;
