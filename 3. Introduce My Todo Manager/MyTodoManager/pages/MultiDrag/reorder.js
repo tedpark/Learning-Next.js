@@ -1,9 +1,8 @@
-// @flow
-import type { Quote, QuoteMap } from './types';
-import type { DraggableLocation } from '../../src/types';
+// import type { Quote, QuoteMap } from './types';
+// import type { DraggableLocation } from '../../src/types';
 
 // a little function to help us with reordering the result
-const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {
+const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
@@ -13,38 +12,30 @@ const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {
 
 export default reorder;
 
-type ReorderQuoteMapArgs = {|
-  quoteMap: QuoteMap,
-  source: DraggableLocation,
-  destination: DraggableLocation,
-|};
+// ReorderQuoteMapArgs = {
+//   quoteMap,
+//   source,
+//   destination
+// };
 
-export type ReorderQuoteMapResult = {|
-  quoteMap: QuoteMap,
-|};
+// ReorderQuoteMapResult = {
+//   quoteMap
+// };
 
-export const reorderQuoteMap = ({
-  quoteMap,
-  source,
-  destination,
-}: ReorderQuoteMapArgs): ReorderQuoteMapResult => {
-  const current: Quote[] = [...quoteMap[source.droppableId]];
-  const next: Quote[] = [...quoteMap[destination.droppableId]];
-  const target: Quote = current[source.index];
+export const reorderQuoteMap = ({ quoteMap, source, destination }) => {
+  const current = [...quoteMap[source.droppableId]];
+  const next = [...quoteMap[destination.droppableId]];
+  const target = current[source.index];
 
   // moving to same list
   if (source.droppableId === destination.droppableId) {
-    const reordered: Quote[] = reorder(
-      current,
-      source.index,
-      destination.index,
-    );
-    const result: QuoteMap = {
+    const reordered = reorder(current, source.index, destination.index);
+    const result = {
       ...quoteMap,
-      [source.droppableId]: reordered,
+      [source.droppableId]: reordered
     };
     return {
-      quoteMap: result,
+      quoteMap: result
     };
   }
 
@@ -55,13 +46,13 @@ export const reorderQuoteMap = ({
   // insert into next
   next.splice(destination.index, 0, target);
 
-  const result: QuoteMap = {
+  const result = {
     ...quoteMap,
     [source.droppableId]: current,
-    [destination.droppableId]: next,
+    [destination.droppableId]: next
   };
 
   return {
-    quoteMap: result,
+    quoteMap: result
   };
 };

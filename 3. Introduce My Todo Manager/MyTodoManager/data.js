@@ -1,12 +1,16 @@
 // @flow
 import { colors } from "@atlaskit/theme";
-import type { Author, Quote, QuoteMap } from "./types";
 import jakeImg from "./assets/jake.png";
 import finnImg from "./assets/finn.png";
 import bmoImg from "./assets/bmo.png";
 import princessImg from "./assets/princess.png";
 
-const jake: Author = {
+// let jakeImg = "jakeImg";
+// let finnImg = "finnImg";
+// let bmoImg = "bmoImg";
+// let princessImg = "princessImg";
+
+const jake = {
   id: "1",
   name: "Jake",
   url: "http://adventuretime.wikia.com/wiki/Jake",
@@ -17,7 +21,7 @@ const jake: Author = {
   }
 };
 
-const BMO: Author = {
+const BMO = {
   id: "2",
   name: "BMO",
   url: "http://adventuretime.wikia.com/wiki/BMO",
@@ -28,7 +32,7 @@ const BMO: Author = {
   }
 };
 
-const finn: Author = {
+const finn = {
   id: "3",
   name: "Finn",
   url: "http://adventuretime.wikia.com/wiki/Finn",
@@ -39,7 +43,7 @@ const finn: Author = {
   }
 };
 
-const princess: Author = {
+const princess = {
   id: "4",
   name: "Princess bubblegum",
   url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
@@ -50,9 +54,31 @@ const princess: Author = {
   }
 };
 
-export const authors: Author[] = [jake, BMO, finn, princess];
+const prin = {
+  id: "5",
+  name: "Prin",
+  url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
+  avatarUrl: princessImg,
+  colors: {
+    soft: colors.P50,
+    hard: colors.P200
+  }
+};
 
-export const quotes: Quote[] = [
+const ted = {
+  id: "6",
+  name: "Ted",
+  url: "http://adventuretime.wikia.com/wiki/Princess_Bubblegum",
+  avatarUrl: princessImg,
+  colors: {
+    soft: colors.P50,
+    hard: colors.P200
+  }
+};
+
+export const authors = [jake, BMO, finn, princess, prin, ted];
+
+export const quotes = [
   {
     id: "1",
     content: "Sometimes life is scary and dark",
@@ -112,18 +138,28 @@ export const quotes: Quote[] = [
   {
     id: "12",
     content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
-    author: princess
+    author: prin
+  },
+  {
+    id: "13",
+    content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
+    author: prin
+  },
+  {
+    id: "14",
+    content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
+    author: prin
   }
 ];
 
 // So we do not have any clashes with our hardcoded ones
-let idCount: number = quotes.length + 1;
+let idCount = quotes.length + 2;
 
-export const getQuotes = (count: number): Quote[] =>
+export const getQuotes = count =>
   Array.from({ length: count }, (v, k) => k).map(() => {
-    const random: Quote = quotes[Math.floor(Math.random() * quotes.length)];
+    const random = quotes[Math.floor(Math.random() * quotes.length)];
 
-    const custom: Quote = {
+    const custom = {
       ...random,
       id: `G${idCount++}`
     };
@@ -131,11 +167,11 @@ export const getQuotes = (count: number): Quote[] =>
     return custom;
   });
 
-export const getAuthors = (count: number): Author[] =>
+export const getAuthors = count =>
   Array.from({ length: count }, (v, k) => k).map(() => {
-    const random: Author = authors[Math.floor(Math.random() * authors.length)];
+    const random = authors[Math.floor(Math.random() * authors.length)];
 
-    const custom: Author = {
+    const custom = {
       ...random,
       id: `author-${idCount++}`
     };
@@ -143,20 +179,20 @@ export const getAuthors = (count: number): Author[] =>
     return custom;
   });
 
-const getByAuthor = (author: Author, items: Quote[]): Quote[] =>
-  items.filter((quote: Quote) => quote.author === author);
+const getByAuthor = (author, items) =>
+  items.filter(quote => quote.author === author);
 
-export const authorQuoteMap: QuoteMap = authors.reduce(
-  (previous: QuoteMap, author: Author) => ({
+export const authorQuoteMap = authors.reduce(
+  (previous, author) => ({
     ...previous,
     [author.name]: getByAuthor(author, quotes)
   }),
   {}
 );
 
-export const generateQuoteMap = (quoteCount: number): QuoteMap =>
+export const generateQuoteMap = quoteCount =>
   authors.reduce(
-    (previous: QuoteMap, author: Author) => ({
+    (previous, author) => ({
       ...previous,
       [author.name]: getQuotes(quoteCount / authors.length)
     }),

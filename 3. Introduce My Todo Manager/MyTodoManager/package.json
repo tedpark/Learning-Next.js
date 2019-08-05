@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next -p 9000",
     "build": "next build",
-    "flow": "flow",
     "export": "next export",
     "start": "next start"
   },
@@ -37,8 +36,6 @@
     "@babel/core": "^7.5.5",
     "babel-core": "^7.0.0-bridge",
     "react-addons-test-utils": "15.6.2",
-    "react-test-renderer": "16.8.6",
-    "babel-plugin-transform-flow-strip-types": "6.22.0",
-    "flow-bin": "0.77.0"
+    "react-test-renderer": "16.8.6"
   }
 }
