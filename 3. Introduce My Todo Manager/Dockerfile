@@ -26,21 +26,3 @@ RUN cargo install --path .
 
 EXPOSE 3000
 CMD ["static-server-rs"]
-
-
-# # Clojure
-# WORKDIR /usr/src/app/static-server-clj/
-# RUN lein deps
-# RUN lein uberjar
-
-# # Java
-# # FROM openjdk:10.0.1-10-jdk-sid
-# # FROM openjdk:alpine
-# FROM amazoncorretto
-# RUN mkdir -p /usr/src/app
-# WORKDIR /usr/src/app
-# COPY --from=clojure-build-file /usr/src/app/static-server-clj/target/uberjar/static-server-clj.jar /usr/src/app/static-server-clj/
-
-# EXPOSE 3000
-# WORKDIR /usr/src/app/static-server-clj
-# CMD ["java", "-jar", "static-server-clj.jar"]
