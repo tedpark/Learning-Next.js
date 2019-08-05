@@ -1,5 +1,5 @@
 // @flow
-import type { DraggableId, DraggableLocation } from "../../src/types";
+import type { DraggableId, DraggableLocation } from "./src/src/types";
 
 export type Id = string;
 

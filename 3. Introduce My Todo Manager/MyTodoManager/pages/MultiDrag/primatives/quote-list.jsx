@@ -12,7 +12,7 @@ import type {
   DroppableStateSnapshot,
   DraggableProvided,
   DraggableStateSnapshot
-} from "../types.js";
+} from "../../../src/src/index.js";
 
 const getBackgroundColor = (
   isDraggingOver: boolean,

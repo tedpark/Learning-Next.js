@@ -6,8 +6,9 @@ import { grid } from "../../../constants";
 import type {
   DraggableProvided,
   DraggableStateSnapshot
-} from "../../../types.js";
-import type { Author } from "../../../types.js";
+} from "../../../src/src";
+
+import type { Author } from "../../../types";
 
 const Avatar = styled.img`
   width: 60px;

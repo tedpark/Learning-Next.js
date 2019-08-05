@@ -7,7 +7,7 @@ import type {
   DropResult,
   DraggableLocation,
   DroppableProvided
-} from "../../../types.js";
+} from "../../../src/src";
 import type { QuoteMap, Quote } from "../../../types.js";
 import Column from "./column";
 import reorder, { reorderQuoteMap } from "../reorder";
