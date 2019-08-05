@@ -5,10 +5,10 @@ import NavBar from "../containers/NavBar/NavBar";
 function Index(props) {
   const { Component, pageProps, reduxStore } = props;
   return (
-    <Container>
+    <div>
       <NavBar />
       <Component {...pageProps} />
-    </Container>
+    </div>
   );
 }
 
