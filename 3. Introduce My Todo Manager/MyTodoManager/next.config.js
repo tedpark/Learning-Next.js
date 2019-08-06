@@ -3,9 +3,9 @@ const withCSS = require("@zeit/next-css");
 module.exports = withCSS({
   exportPathMap: function() {
     return {
-      "/": { page: "/" },
-      "/login": { page: "/Login" },
-      "/main": { page: "/Main" }
+      "/": { page: "/index" },
+      "/login": { page: "/login" },
+      "/main": { page: "/main" }
       // "/": { page: "/" }
       // "/": { page: "/" }
       // "/": { page: "/" }
