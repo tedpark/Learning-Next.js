@@ -1,5 +1,141 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/_app.js"],{
 
+/***/ "./containers/NavBar/NavBar.js":
+/*!*************************************!*\
+  !*** ./containers/NavBar/NavBar.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var rbx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rbx */ "./node_modules/rbx/index.js");
+/* harmony import */ var rbx_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rbx/index.css */ "./node_modules/rbx/index.css");
+/* harmony import */ var rbx_index_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(rbx_index_css__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/ted/bitlocal/Learning-Next.js/3. Introduce My Todo Manager/MyTodoManager/containers/NavBar/NavBar.js";
+
+
+
+
+
+var NavBar = function NavBar(props, _ref) {
+  var children = _ref.children;
+  // export default function NavBar(   props, { children }  ) {
+  var Component = props.Component,
+      pageProps = props.pageProps,
+      reduxStore = props.reduxStore;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
+    transparent: true,
+    fixed: "top",
+    style: {
+      backgroundColor: "#155B9C"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Item, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://bulma.io/images/bulma-logo-white.png",
+    alt: "",
+    role: "presentation",
+    width: "112",
+    height: "28",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Burger, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Menu, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Segment, {
+    align: "end",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Item, {
+    style: {
+      backgroundColor: "#155B9C"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Button"].Group, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    color: "info",
+    onClick: function onClick() {
+      return next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/main");
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: this
+  }, "Main")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    color: "info",
+    onClick: function onClick() {
+      return next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/login");
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31
+    },
+    __self: this
+  }, "Login")))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NavBar);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js ***!
@@ -3898,6 +4034,40 @@ exports["default"] = mitt;
 
 /***/ }),
 
+/***/ "./node_modules/next-server/dist/lib/request-context.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/next-server/dist/lib/request-context.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+
+var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js"));
+
+var __importStar = void 0 && (void 0).__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  }
+  result["default"] = mod;
+  return result;
+};
+
+(0, _defineProperty["default"])(exports, "__esModule", {
+  value: true
+});
+
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+exports.RequestContext = React.createContext(null);
+
+/***/ }),
+
 /***/ "./node_modules/next-server/dist/lib/router-context.js":
 /*!*************************************************************!*\
   !*** ./node_modules/next-server/dist/lib/router-context.js ***!
@@ -4041,7 +4211,6 @@ function () {
     var initialProps = _ref.initialProps,
         pageLoader = _ref.pageLoader,
         App = _ref.App,
-        wrapApp = _ref.wrapApp,
         Component = _ref.Component,
         err = _ref.err,
         subscription = _ref.subscription;
@@ -4123,7 +4292,6 @@ function () {
     this.asPath = as;
     this.sub = subscription;
     this.clc = null;
-    this._wrapApp = wrapApp;
 
     if (true) {
       // in order for `e.state` to work on the `onpopstate` event
@@ -4631,7 +4799,6 @@ function () {
                 App = this.components['/_app'].Component;
                 _context2.next = 6;
                 return utils_1.loadGetInitialProps(App, {
-                  AppTree: this._wrapApp(App),
                   Component: Component,
                   router: this,
                   ctx: ctx
@@ -5037,6 +5204,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/help
 
 exports.__esModule = true;
 exports.useRouter = useRouter;
+exports.useRequest = useRequest;
 exports.makePublicRouterInstance = makePublicRouterInstance;
 exports.createRouter = exports.withRouter = exports["default"] = void 0;
 
@@ -5052,6 +5220,8 @@ exports.Router = _router2["default"];
 exports.NextRouter = _router2.NextRouter;
 
 var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-context */ "./node_modules/next-server/dist/lib/router-context.js");
+
+var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-context */ "./node_modules/next-server/dist/lib/request-context.js");
 
 var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/next/dist/client/with-router.js"));
 
@@ -5138,6 +5308,10 @@ exports["default"] = _default;
 
 function useRouter() {
   return _react["default"].useContext(_routerContext.RouterContext);
+}
+
+function useRequest() {
+  return _react["default"].useContext(_requestContext.RequestContext);
 } // INTERNAL APIS
 // -------------
 // (do not use following exports inside the app)
@@ -15716,145 +15890,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/NavBar/NavBar.js":
-/*!********************************!*\
-  !*** ./pages/NavBar/NavBar.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var rbx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rbx */ "./node_modules/rbx/index.js");
-/* harmony import */ var rbx_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rbx/index.css */ "./node_modules/rbx/index.css");
-/* harmony import */ var rbx_index_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(rbx_index_css__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/Users/ted/bitlocal/Learning-Next.js/3. Introduce My Todo Manager/MyTodoManager/pages/NavBar/NavBar.js";
-
-
-
-
-
-var NavBar = function NavBar(props, _ref) {
-  var children = _ref.children;
-  // export default function NavBar(   props, { children }  ) {
-  var Component = props.Component,
-      pageProps = props.pageProps,
-      reduxStore = props.reduxStore;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
-    transparent: true,
-    fixed: "top",
-    style: {
-      backgroundColor: "#155B9C"
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Item, {
-    href: "/",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://bulma.io/images/bulma-logo-white.png",
-    alt: "",
-    role: "presentation",
-    width: "112",
-    height: "28",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Burger, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Menu, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Segment, {
-    align: "end",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 24
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Item, {
-    style: {
-      backgroundColor: "#155B9C"
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Button"].Group, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-    color: "info",
-    onClick: function onClick() {
-      return next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push({
-        pathname: "/main" // query: { name: "Someone" }
-
-      });
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  }, "Main")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(rbx__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-    color: "info",
-    onClick: function onClick() {
-      return next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/login");
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    },
-    __self: this
-  }, "Login")))))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (NavBar);
-
-/***/ }),
-
 /***/ "./pages/_app.js":
 /*!***********************!*\
   !*** ./pages/_app.js ***!
@@ -15869,7 +15904,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/NavBar/NavBar */ "./pages/NavBar/NavBar.js");
+/* harmony import */ var _containers_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/NavBar/NavBar */ "./containers/NavBar/NavBar.js");
 
 var _jsxFileName = "/Users/ted/bitlocal/Learning-Next.js/3. Introduce My Todo Manager/MyTodoManager/pages/_app.js";
 
@@ -15886,7 +15921,7 @@ function Index(props) {
       lineNumber: 8
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_pages_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_containers_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9

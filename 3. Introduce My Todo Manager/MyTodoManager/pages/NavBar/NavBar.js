@@ -50,6 +50,9 @@ const NavBar = (props, { children }) => {
                 <strong>Main</strong>
               </Button>
             </Navbar.Item>
+            <Button color="info" onClick={() => Router.push("/main")}>
+              <strong>Main</strong>
+            </Button>
             <Button color="info" onClick={() => Router.push("/login")}>
               <strong>Login</strong>
             </Button>

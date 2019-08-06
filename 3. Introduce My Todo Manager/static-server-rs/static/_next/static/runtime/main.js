@@ -4726,6 +4726,40 @@ exports["default"] = mitt;
 
 /***/ }),
 
+/***/ "./node_modules/next-server/dist/lib/request-context.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/next-server/dist/lib/request-context.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+
+var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js"));
+
+var __importStar = void 0 && (void 0).__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  }
+  result["default"] = mod;
+  return result;
+};
+
+(0, _defineProperty["default"])(exports, "__esModule", {
+  value: true
+});
+
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+exports.RequestContext = React.createContext(null);
+
+/***/ }),
+
 /***/ "./node_modules/next-server/dist/lib/router-context.js":
 /*!*************************************************************!*\
   !*** ./node_modules/next-server/dist/lib/router-context.js ***!
@@ -4869,7 +4903,6 @@ function () {
     var initialProps = _ref.initialProps,
         pageLoader = _ref.pageLoader,
         App = _ref.App,
-        wrapApp = _ref.wrapApp,
         Component = _ref.Component,
         err = _ref.err,
         subscription = _ref.subscription;
@@ -4951,7 +4984,6 @@ function () {
     this.asPath = as;
     this.sub = subscription;
     this.clc = null;
-    this._wrapApp = wrapApp;
 
     if (true) {
       // in order for `e.state` to work on the `onpopstate` event
@@ -5459,7 +5491,6 @@ function () {
                 App = this.components['/_app'].Component;
                 _context2.next = 6;
                 return utils_1.loadGetInitialProps(App, {
-                  AppTree: this._wrapApp(App),
                   Component: Component,
                   router: this,
                   ctx: ctx
@@ -7977,22 +8008,13 @@ function () {
     key: "updateElements",
     value: function updateElements(type, components) {
       var headEl = document.getElementsByTagName('head')[0];
-      var headCountEl = headEl.querySelector('meta[name=next-head-count]');
-      var headCount = Number(headCountEl.content);
-      var oldTags = [];
-
-      for (var i = 0, j = headCountEl.previousElementSibling; i < headCount; i++, j = j.previousElementSibling) {
-        if (j.tagName.toLowerCase() === type) {
-          oldTags.push(j);
-        }
-      }
-
+      var oldTags = Array.prototype.slice.call(headEl.querySelectorAll(type + '.next-head'));
       var newTags = components.map(reactElementToDOM).filter(function (newTag) {
-        for (var k = 0, len = oldTags.length; k < len; k++) {
-          var oldTag = oldTags[k];
+        for (var i = 0, len = oldTags.length; i < len; i++) {
+          var oldTag = oldTags[i];
 
           if (oldTag.isEqualNode(newTag)) {
-            oldTags.splice(k, 1);
+            oldTags.splice(i, 1);
             return false;
           }
         }
@@ -8003,9 +8025,8 @@ function () {
         return t.parentNode.removeChild(t);
       });
       newTags.forEach(function (t) {
-        return headEl.insertBefore(t, headCountEl);
+        return headEl.appendChild(t);
       });
-      headCountEl.content = (headCount - oldTags.length + newTags.length).toString();
     }
   }]);
   return HeadManager;
@@ -8305,7 +8326,6 @@ function () {
               pageLoader: pageLoader,
               App: App,
               Component: Component,
-              wrapApp: wrapApp,
               err: initialErr,
               subscription: function subscription(_ref3, App) {
                 var Component = _ref3.Component,
@@ -8406,7 +8426,7 @@ function _renderError() {
   _renderError = (0, _asyncToGenerator2["default"])(
   /*#__PURE__*/
   _regenerator["default"].mark(function _callee3(props) {
-    var App, err, appCtx, initProps;
+    var App, err, initProps;
     return _regenerator["default"].wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
@@ -8426,11 +8446,19 @@ function _renderError() {
 
           case 6:
             exports.ErrorComponent = ErrorComponent = _context3.sent;
-            // In production we do a normal render with the `ErrorComponent` as component.
-            // If we've gotten here upon initial render, we can use the props from the server.
-            // Otherwise, we need to call `getInitialProps` on `App` before mounting.
-            appCtx = {
-              AppTree: wrapApp(App),
+
+            if (!props.props) {
+              _context3.next = 11;
+              break;
+            }
+
+            _context3.t0 = props.props;
+            _context3.next = 14;
+            break;
+
+          case 11:
+            _context3.next = 13;
+            return (0, _utils.loadGetInitialProps)(App, {
               Component: ErrorComponent,
               router: router,
               ctx: {
@@ -8439,34 +8467,21 @@ function _renderError() {
                 query: query,
                 asPath: asPath
               }
-            };
+            });
 
-            if (!props.props) {
-              _context3.next = 12;
-              break;
-            }
-
-            _context3.t0 = props.props;
-            _context3.next = 15;
-            break;
-
-          case 12:
-            _context3.next = 14;
-            return (0, _utils.loadGetInitialProps)(App, appCtx);
-
-          case 14:
+          case 13:
             _context3.t0 = _context3.sent;
 
-          case 15:
+          case 14:
             initProps = _context3.t0;
-            _context3.next = 18;
+            _context3.next = 17;
             return doRender((0, _extends2["default"])({}, props, {
               err: err,
               Component: ErrorComponent,
               props: initProps
             }));
 
-          case 18:
+          case 17:
           case "end":
             return _context3.stop();
         }
@@ -8511,17 +8526,6 @@ function AppContainer(_ref4) {
   }, children)))));
 }
 
-var wrapApp = function wrapApp(App) {
-  return function (props) {
-    var appProps = (0, _extends2["default"])({}, props, {
-      Component: Component,
-      err: err,
-      router: router
-    });
-    return _react["default"].createElement(AppContainer, null, _react["default"].createElement(App, appProps));
-  };
-};
-
 function doRender(_x4) {
   return _doRender.apply(this, arguments);
 }
@@ -8530,7 +8534,7 @@ function _doRender() {
   _doRender = (0, _asyncToGenerator2["default"])(
   /*#__PURE__*/
   _regenerator["default"].mark(function _callee4(_ref5) {
-    var App, Component, props, err, _router2, pathname, _query, _asPath, appCtx, appProps;
+    var App, Component, props, err, _router2, pathname, _query, _asPath, appProps;
 
     return _regenerator["default"].wrap(function _callee4$(_context4) {
       while (1) {
@@ -8540,37 +8544,35 @@ function _doRender() {
             // this is for when ErrorComponent gets replaced by Component by HMR
 
             if (!(!props && Component && Component !== ErrorComponent && lastAppProps.Component === ErrorComponent)) {
-              _context4.next = 7;
+              _context4.next = 6;
               break;
             }
 
             _router2 = router, pathname = _router2.pathname, _query = _router2.query, _asPath = _router2.asPath;
-            appCtx = {
+            _context4.next = 5;
+            return (0, _utils.loadGetInitialProps)(App, {
+              Component: Component,
               router: router,
-              AppTree: wrapApp(App),
-              Component: ErrorComponent,
               ctx: {
                 err: err,
                 pathname: pathname,
                 query: _query,
                 asPath: _asPath
               }
-            };
-            _context4.next = 6;
-            return (0, _utils.loadGetInitialProps)(App, appCtx);
+            });
 
-          case 6:
+          case 5:
             props = _context4.sent;
 
-          case 7:
+          case 6:
             Component = Component || lastAppProps.Component;
             props = props || lastAppProps.props;
-            appProps = (0, _extends2["default"])({}, props, {
+            appProps = (0, _extends2["default"])({
               Component: Component,
               err: err,
-              router: router // lastAppProps has to be set before ReactDom.render to account for ReactDom throwing an error.
+              router: router
+            }, props); // lastAppProps has to be set before ReactDom.render to account for ReactDom throwing an error.
 
-            });
             lastAppProps = appProps;
             emitter.emit('before-reactdom-render', {
               Component: Component,
@@ -8585,7 +8587,7 @@ function _doRender() {
               appProps: appProps
             });
 
-          case 14:
+          case 13:
           case "end":
             return _context4.stop();
         }
@@ -8851,9 +8853,6 @@ function () {
                 route = _this.normalizeRoute(route);
                 scriptRoute = route === '/' ? '/index.js' : route + ".js";
                 script = document.createElement('script');
-
-                if (false) {}
-
                 url = _this.assetPrefix + "/_next/static/" + encodeURIComponent(_this.buildId) + "/pages" + scriptRoute;
                 script.crossOrigin = undefined;
                 script.src = url;
@@ -8869,7 +8868,7 @@ function () {
 
                 document.body.appendChild(script);
 
-              case 11:
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -8945,42 +8944,40 @@ function () {
                 route = _this2.normalizeRoute(route);
                 scriptRoute = (route === '/' ? '/index' : route) + ".js";
 
-                if (false) {}
-
                 if (!(_this2.prefetchCache.has(scriptRoute) || document.getElementById("__NEXT_PAGE__" + route))) {
-                  _context2.next = 5;
+                  _context2.next = 4;
                   break;
                 }
 
                 return _context2.abrupt("return");
 
-              case 5:
+              case 4:
                 _this2.prefetchCache.add(scriptRoute); // Inspired by quicklink, license: https://github.com/GoogleChromeLabs/quicklink/blob/master/LICENSE
                 // Don't prefetch if the user is on 2G / Don't prefetch if Save-Data is enabled
 
 
                 if (!('connection' in navigator)) {
-                  _context2.next = 9;
+                  _context2.next = 8;
                   break;
                 }
 
                 if (!((navigator.connection.effectiveType || '').indexOf('2g') !== -1 || navigator.connection.saveData)) {
-                  _context2.next = 9;
+                  _context2.next = 8;
                   break;
                 }
 
                 return _context2.abrupt("return");
 
-              case 9:
+              case 8:
                 if (!hasPreload) {
-                  _context2.next = 19;
+                  _context2.next = 18;
                   break;
                 }
 
-                _context2.next = 12;
+                _context2.next = 11;
                 return _this2.promisedBuildId;
 
-              case 12:
+              case 11:
                 link = document.createElement('link');
                 link.rel = 'preload';
                 link.crossOrigin = undefined;
@@ -8989,15 +8986,15 @@ function () {
                 document.head.appendChild(link);
                 return _context2.abrupt("return");
 
-              case 19:
+              case 18:
                 if (!(document.readyState === 'complete')) {
-                  _context2.next = 23;
+                  _context2.next = 22;
                   break;
                 }
 
                 return _context2.abrupt("return", _this2.loadPage(route)["catch"](function () {}));
 
-              case 23:
+              case 22:
                 return _context2.abrupt("return", new _promise["default"](function (resolve) {
                   window.addEventListener('load', function () {
                     _this2.loadPage(route).then(function () {
@@ -9008,7 +9005,7 @@ function () {
                   });
                 }));
 
-              case 24:
+              case 23:
               case "end":
                 return _context2.stop();
             }
@@ -9056,6 +9053,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/help
 
 exports.__esModule = true;
 exports.useRouter = useRouter;
+exports.useRequest = useRequest;
 exports.makePublicRouterInstance = makePublicRouterInstance;
 exports.createRouter = exports.withRouter = exports["default"] = void 0;
 
@@ -9071,6 +9069,8 @@ exports.Router = _router2["default"];
 exports.NextRouter = _router2.NextRouter;
 
 var _routerContext = __webpack_require__(/*! next-server/dist/lib/router-context */ "./node_modules/next-server/dist/lib/router-context.js");
+
+var _requestContext = __webpack_require__(/*! next-server/dist/lib/request-context */ "./node_modules/next-server/dist/lib/request-context.js");
 
 var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/next/dist/client/with-router.js"));
 
@@ -9157,6 +9157,10 @@ exports["default"] = _default;
 
 function useRouter() {
   return _react["default"].useContext(_routerContext.RouterContext);
+}
+
+function useRequest() {
+  return _react["default"].useContext(_requestContext.RequestContext);
 } // INTERNAL APIS
 // -------------
 // (do not use following exports inside the app)
