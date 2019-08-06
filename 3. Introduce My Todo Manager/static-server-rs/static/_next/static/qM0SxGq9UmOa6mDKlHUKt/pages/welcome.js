@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["d857"],{"Djq+":function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/welcome",function(){var n=o("jgUp");return{page:n.default||n}}])},jgUp:function(n,w){}},[["Djq+","5d41"]]]);

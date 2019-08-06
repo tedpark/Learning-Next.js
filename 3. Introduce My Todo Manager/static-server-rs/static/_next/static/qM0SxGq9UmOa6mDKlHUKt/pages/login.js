@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["ebcf"],{O2ls:function(n,u){},u6Hu:function(n,u,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/login",function(){var n=o("O2ls");return{page:n.default||n}}])}},[["u6Hu","5d41"]]]);
