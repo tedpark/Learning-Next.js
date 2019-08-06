@@ -11,7 +11,8 @@ fn main() -> std::io::Result<()> {
             .wrap(middleware::Logger::default())
             .service(
                 // static files
-                fs::Files::new("/", "./static/").index_file("index.html"),
+                // fs::Files::new("/", "./static/").show_files_listing()
+                fs::Files::new("/*", "./static/").index_file("index.html"),
             )
     })
     .bind("0.0.0.0:3000")?
