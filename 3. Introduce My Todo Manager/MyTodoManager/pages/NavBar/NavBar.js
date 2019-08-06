@@ -9,14 +9,7 @@ const NavBar = (props, { children }) => {
   return (
     <Navbar transparent fixed="top" style={{ backgroundColor: "#155B9C" }}>
       <Navbar.Brand>
-        <Navbar.Item
-          onClick={() =>
-            Router.push({
-              pathname: "/users/auth/facebook/callback"
-              // query: { name: "Someone" }
-            })
-          }
-        >
+        <Navbar.Item href="/">
           <img
             src="https://bulma.io/images/bulma-logo-white.png"
             alt=""
@@ -29,34 +22,16 @@ const NavBar = (props, { children }) => {
       </Navbar.Brand>
       <Navbar.Menu>
         <Navbar.Segment align="end">
-          <Button.Group>
-            <Navbar.Item
-              onClick={() =>
-                Router.push({
-                  pathname: "/users/auth/facebook/callback"
-                  // query: { name: "Someone" }
-                })
-              }
-            >
-              <Button
-                color="info"
-                onClick={() =>
-                  Router.push({
-                    pathname: "/main"
-                    // query: { name: "Someone" }
-                  })
-                }
-              >
+          <Navbar.Item style={{ backgroundColor: "#155B9C" }}>
+            <Button.Group>
+              <Button color="info" onClick={() => Router.push("/main")}>
                 <strong>Main</strong>
               </Button>
-            </Navbar.Item>
-            <Button color="info" onClick={() => Router.push("/main")}>
-              <strong>Main</strong>
-            </Button>
-            <Button color="info" onClick={() => Router.push("/login")}>
-              <strong>Login</strong>
-            </Button>
-          </Button.Group>
+              <Button color="info" onClick={() => Router.push("/login")}>
+                <strong>Login</strong>
+              </Button>
+            </Button.Group>
+          </Navbar.Item>
         </Navbar.Segment>
       </Navbar.Menu>
     </Navbar>
