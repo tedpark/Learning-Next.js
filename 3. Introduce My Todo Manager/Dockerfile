@@ -7,7 +7,6 @@ COPY /MyTodoManager /usr/src/app/react
 
 # React
 WORKDIR /usr/src/app/react/
-RUN export NODE_ENV=production
 RUN npm install  
 RUN npm run build
 RUN npm run export
