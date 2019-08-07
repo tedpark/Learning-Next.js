@@ -1,6 +1,6 @@
 import React from "react";
 import App, { Container } from "next/app";
-import NavBar from "../pages/NavBar/NavBar";
+import NavBar from "../containers/NavBar/NavBar";
 
 function Index(props) {
   const { Component, pageProps, reduxStore } = props;
