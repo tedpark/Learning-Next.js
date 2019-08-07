@@ -16,7 +16,7 @@ import axios from "axios";
 
 async function getKanbanData() {
   try {
-    const response = await axios.get("http://localhost:3000" + "/todos");
+    const response = await axios.get("http://localhost:9000" + "/todos");
     console.log(response);
     // this.setState({
     //   view: <MainLayoutView />
