@@ -3,6 +3,7 @@ const withCSS = require("@zeit/next-css");
 
 module.exports = withCSS(
   withSass({
+    // exportTrailingSlash: true,
     exportPathMap: function() {
       return {
         "/": { page: "/index" },
