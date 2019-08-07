@@ -10,7 +10,7 @@ import {
 } from "rbx";
 import "rbx/index.css";
 import json from "../JsonData";
-import Board from "../MultiDrag/board/board";
+import Board from "../containers/Kanban/board/board";
 import { authorQuoteMap, generateQuoteMap } from "../data";
 import axios from "axios";
 
