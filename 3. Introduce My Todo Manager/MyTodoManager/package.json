@@ -1,0 +1,43 @@
+{
+  "name": "with-nextjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next -p 9000",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@atlaskit/theme": "^9.1.2",
+    "@emotion/core": "^10.0.15",
+    "@emotion/styled": "^10.0.15",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.19.0",
+    "classnames": "^2.2.6",
+    "file-loader": "^4.1.0",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "next": "^9.0.3",
+    "rbx": "^2.2.0",
+    "react": "^16.8.6",
+    "react-beautiful-dnd": "^11.0.5",
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.9.1",
+    "react-social-login-buttons": "^3.0.0",
+    "styled-components": "^4.3.2",
+    "url-loader": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "babel-core": "^7.0.0-bridge",
+    "react-addons-test-utils": "15.6.2",
+    "react-test-renderer": "16.8.6"
+  }
+}
